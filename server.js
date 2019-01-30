@@ -85,11 +85,17 @@ app.get("/reserve", function(req, res) {
 });
 
 // Add Reservation
-app.post("/api/tables", function (req, res) {
+app.post("/api/new", function (req, res) {
     let newtable = req.body;
 
     console.log(newtable);
-    reservations.push(newtable);
+    if (reservations.length < 5) {
+        reservations.push(newtable);
+    }
+    else {
+        waitList.push(newtable);
+    }
+    // reservations.push(newtable);
     res.json(newtable);
 });
 

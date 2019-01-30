@@ -80,7 +80,7 @@
                     uniqueId: $("#reserveUniqueID").val().trim(),
                 };
 
-                $.post("/api/tables", newTable).then(function(data) {
+                $.post("/api/new", newTable).then(function(data) {
                     console.log(data);
                     alert("Adding table......")
                 });
