@@ -9,6 +9,8 @@ const PORT = 3000;
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
+var visitorCount = 0;
+
 let reservations = [
     {
         name: "Table 1",
@@ -63,17 +65,23 @@ let waitList = [
     }
 ];
 
+// JSON Routes
 app.get("/api/tables", function(req, res) {
     return res.json(reservations);
 });
 
 app.get("/api/waitlist", function(req, res) {
     return res.json(waitList);
-})
+});
+
+app.get("/api/visitors", function(req, res) {
+    res.json(visitorCount);
+});
 
 // Routing
 app.get("/", function(req, res) {
     res.sendFile(path.join(__dirname, "index.html"));
+    visitorCount++;
 });
 
 app.get("/tables", function(req, res) {
