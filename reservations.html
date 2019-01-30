@@ -62,10 +62,28 @@
                         <input type="text" class="form-control" id="reserveUniqueID">
                     </div>
 
-                    <button type="submit" class="btn btn-primary submit">Submit</button>
+                    <button type="submit" class="btn btn-primary submit" id="add-btn">Submit</button>
             </form>
             </form>
         </div>
+
+        <script type="text/javascript">
+            // Question: What does this code do?
+            $("#add-btn").on("click", function (event) {
+                event.preventDefault();
+                let newTable = {
+                    name: $("#reserveName").val().trim(),
+                    phoneNumber: $("#reservePhone").val().trim(),
+                    email: $("#reserveEmail").val().trim(),
+                    uniqueId: $("#reserveUniqueID").val().trim(),
+                };
+
+                $.post("/api/tables", newTable).then(function(data) {
+                    console.log(data);
+                    alert("Adding table......")
+                });
+            });
+        </script>
 
         <footer class="footer">
             <div class="container">

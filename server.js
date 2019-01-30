@@ -76,12 +76,21 @@ app.get("/", function(req, res) {
     res.sendFile(path.join(__dirname, "index.html"));
 });
 
-app.get("/table", function(req, res) {
+app.get("/tables", function(req, res) {
     res.sendFile(path.join(__dirname, "tables.html"));
 });
 
-app.get("/reservations", function(req, res) {
+app.get("/reserve", function(req, res) {
     res.sendFile(path.join(__dirname, "reservations.html"));
+});
+
+// Add Reservation
+app.post("/api/tables", function (req, res) {
+    let newtable = req.body;
+
+    console.log(newtable);
+    reservations.push(newtable);
+    res.json(newtable);
 });
 
 app.listen(PORT, function() {
