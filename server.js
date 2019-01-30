@@ -107,6 +107,34 @@ app.post("/api/new", function (req, res) {
     res.json(newtable);
 });
 
+app.get("/api/remove/:id?" , function(req, res) {
+    let tableId = req.params.id;
+
+    if (tableId) {
+        console.log(tableId);
+        for (let i = 0; i < reservations.length; i++) {
+            if (tableId === reservations[i].uniqueId) {
+                reservations.splice(i, 1);
+                if (waitList.length > 0) {
+                    let tempTable = waitList.splice(0, 1)[0];
+                    reservations.push(tempTable);
+                }
+            return res.json(true);
+            }
+        }
+
+        for (let i = 0; i < waitList.length; i++) {
+            if (tableId === waitList[i].uniqueId) {
+                waitList.splice(i, 1);
+
+                return res.json(true);
+            }
+        }
+        return res.json(false);
+    }
+    return res.json(false);
+});
+
 app.listen(PORT, function() {
     // Callback triggered when server is successfully listening. Hurray!
     console.log("Server listening on: http://localhost:" + PORT);
