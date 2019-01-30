@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Tables</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
+    <script src="main.js"></script>
+</head>
+<body>
+    <div class="container">
+        <div class="jumbotron">
+            <h1 class="text-center">
+                <span class="fa fa-fire">
+                </span>
+                Hot Restaurant
+            </h1>
+            <hr>
+            <h2 class="text-center">Current Reservation and Waiting List</h2>
+            <br>
+            <div class="text-center">
+                <a href="reservations.html">
+                    <button class="btn btn-lg btn-danger">
+                        <span class="fa fa-credit-card">
+                        </span>
+                        Make Reservation
+                    </button>
+                </a>
+                <a href="index.html">
+                    <button class="btn btn-lg btn-primary">
+                        <span class="fa fa-list-alt">
+                        </span>
+                        Home
+                    </button>
+                </a>
+            </div>
+        </div>
+        <div class="container bottomcontainer border">
+                <div class="row">
+                    <div class="col-md card">
+                        <p class="card-header"><strong>Reserved tables</strong></p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md">
+                        <div id="reserved"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="container bottomcontainer border">
+                    <div class="row">
+                        <div class="col-md card">
+                            <p class="card-header"><strong>Waiting list</strong></p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md">
+                            <div id="waiting"></div>
+                        </div>
+                    </div>
+                </div>
+        <footer class="footer">
+            <div class="container">
+                <p>
+                    <a href="/api/tables">API Table Link</a>
+                    |
+                    <a href="/api/waitlist">API Wait List</a>
+                </p>
+            </div>
+        </footer>
+    </div>
+    
+</body>
+</html>
