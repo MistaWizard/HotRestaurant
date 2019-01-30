@@ -75,7 +75,7 @@ app.get("/api/waitlist", function(req, res) {
 });
 
 app.get("/api/visitors", function(req, res) {
-    res.json(visitorCount);
+    return res.json(visitorCount);
 });
 
 // Routing
